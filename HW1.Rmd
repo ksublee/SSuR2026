@@ -34,3 +34,53 @@ t(x) %*% y
 ```
 
 
+### 정렬 알고리즘
+
+#### 학번: 22110681 / 이름: 이윤형
+
+함수 기능을 이용하여 버블 정렬과 선택 정렬 알고리즘을 구현하였습니다.
+
+```{r}
+# 버블 정렬
+bubble_sort <- function(x) {
+  n <- length(x) 
+  
+  for (i in 1:(n - 1)) {
+    for (j in 1:(n - i)) {
+      if (x[j] > x[j + 1]) {
+        tmp <- x[j]
+        x[j] <- x[j + 1]
+        x[j + 1] <- tmp
+      }
+    }
+  }
+  return(x)
+}
+vec1 <- c(5,7,1,6,4)
+bubble_sort(vec1)
+```
+```{r}
+# 선택 정렬
+selection_sort <- function(x) {
+  n <- length(x) 
+  for (i in 1:(n - 1)) {
+    min <- i
+    for (j in (i + 1):n) {
+      if (x[j] < x[min]) {
+        min <- j
+      }
+    }
+    
+    if (min != i) {
+      tmp <- x[i]
+      x[i] <- x[min]
+      x[min] <- tmp
+    }
+  }
+  
+  return(x)
+}
+vec2 <- c(7,4,2,6,1)
+selection_sort(vec2)
+
+```
