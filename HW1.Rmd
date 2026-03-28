@@ -104,6 +104,37 @@ selection_sort(vec2)
 
 
 
+### 가로 길이 변화에 따른 둘레의 변화를 그래프로 그려라.
+
+#### 학번: 22010681 / 이름: 김현준
+
+설명
+
+```{r}
+# 1. 가로 길이 x의 범위 설정 (0.1부터 20까지)
+x <- seq(1, 25, length.out = 100)
+
+# 2. 넓이가 100일 때의 세로 길이 y 계산
+y <- 100 / x
+
+# 3. 둘레 P 계산
+perimeter <- 2 * (x + y)
+
+# 4. 데이터 프레임 생성
+df <- data.frame(width = x, perimeter = perimeter)
+```
+```{r}
+# 5. 시각화
+plot(df$width, df$perimeter, type = "l", col = "blue", lwd = 2,
+     main = "Width vs Perimeter (Area = 100)",
+     xlab = "Width (x)", ylab = "Perimeter (P)")
+
+# 최솟값 지점(x=10, P=40) 표시
+points(10, 40, col = "red", pch = 19)
+text(10, 45, "Minimum (10, 40)", col = "red")
+grid()
+```
+
 ### 정사영 함수 구현
 
 #### 학번: 22310429 / 이름: 안은사랑
