@@ -119,6 +119,50 @@ vec2 <- c(7,4,2,6,1)
 selection_sort(vec2)
 
 ```
+### 1년 중의 평균 온도 그래프로 나타내기
+
+
+
+
+
+
+
+#### 학번 : 22210631   / 이름 : 김경우
+
+
+
+
+
+
+
+1년 중의 평균 온도에 대한 그래프 그리는 예제
+
+
+
+
+
+
+
+```{r}
+
+
+
+months <- 1:12
+
+
+
+temp <- c(-2.4,0.4,5.7,12.5,17.8,22,24,25.7,21.2,14.7,7.2,0.4)
+
+
+
+data.frame(Month=months,Temperature=temp)
+
+
+
+plot(months,temp,col="red",xlab="Month",ylab="Temperature")
+
+
+
 
 
 
