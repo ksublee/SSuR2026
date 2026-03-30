@@ -285,3 +285,26 @@ is_prime <- function(n){
 is_prime(7)
 ```
 
+
+### 자릿수릐 합 구하기
+
+#### 학번: 22321653 / 이름: 이민지
+
+제어문과 산술 연산자를 사용하여 랜덤하게 뽑은 정수의 각 자릿수의 합을 계산하는 코드
+
+```{r}
+
+num <-  sample(1:10000,1)
+original <- num
+sum <- 0
+while(num>0){
+  sum <-  sum + (num%%10)
+  num <-  num%/%10
+}
+
+cat(original,"의 각 자릿수의 합: ",sum)
+```
+
+
+
+
