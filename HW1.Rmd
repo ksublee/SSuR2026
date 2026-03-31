@@ -304,6 +304,6 @@ while(num>0){
 
 cat(original,"의 각 자릿수의 합: ",sum)
 
-
+```
 
 
