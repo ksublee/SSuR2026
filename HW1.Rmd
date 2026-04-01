@@ -33,23 +33,36 @@ sum(x * y)
 t(x) %*% y
 ```
 
-### 5보다 큰 숫자 오름차순 정렬
+### 동전을 10번 던졌을 때 앞면이 나오는 횟수 1000번 시뮬레이션하고, 평균 계산
 
 #### 학번 : 22410403 / 이름 : 김나현
 
 ```{r}
-x <- c(5, 12, 3, 7, 8, 2, 1, 9)
-x_1 <- x[x > 5]
-sort(x_1)
+set.seed(100)
+
+n <- 10
+n_s <- 1000
+results <- replicate(n_s, sum(sample(c(1,0), n, replace = TRUE)))
+
+head(results)
+
+mean_heads <- mean(results)
+mean_heads
 ```
 
-### 10보다 작은 숫자 평균 구하기
+### 시뮬레이션한 결과를 바탕으로 히스토그램을 그려 분포를 확인하고, 각 횟수의 확률 계산
 
 #### 학번 : 22410403 / 이름 : 김나현
 
 ```{r}
-y <- c(6, 8, 13, 22, 10, 4, 18, 16, 7, 2)
-y_1 <- y[y < 10]
-mean(y_1)
+hist(results, breaks = 0 : (n+1)-0.5, col = "lightblue",
+     main = "10회 동전 던지기 시뮬레이션(1000회)",
+     xlab = "앞면이 나온 횟수", ylab = "빈도")
+
+abline(v = mean_heads, col = "blue", lwd = 2)
+text(mean_heads+0.5, 120, paste0("평균 = ", round(mean_heads,2)), col = "blue")
+
+# 0~10 앞면이 나올 확률 계산
+table(results)/n
 ```
 
