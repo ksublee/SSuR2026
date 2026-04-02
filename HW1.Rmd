@@ -333,3 +333,23 @@ z_score <- function(x) {
 z_score(x)
 ```
 
+### 최대/최소 점수 추출하기
+
+#### 학번: 22410413 / 이름: 이나연
+
+데이터 벡터의 최대/최소를 추출하는 코드
+
+```{r}
+scores <- data.frame(
+  name = c("A", "B", "C"),
+  midterm = c(85,92,78),
+  final = c(90, 88 ,82)
+)
+
+scores$best_score <- pmax(scores$midterm, scores$final) #두시험 중 더 높은 점수 추출
+
+scores$worst_score <- pmin(scores$midterm, scores$final) # 두시험 중 더 낮은 점수 추출
+
+print(scores)
+
+```
