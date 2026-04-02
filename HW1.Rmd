@@ -32,6 +32,31 @@ sum(x * y)
 t(x) %*% y
 ```
 
+### Correlation and Linear Relationship Analysis
+
+#### 학번 : 22410439 / 이름 : 박동희
+
+두 개의 변수 데이터를 생성한 뒤, 상관계수를 계산하여 두 변수 간의 선형 관계와 산점도 확인하기
+
+
+```{r}
+
+set.seed(123)
+x <- rnorm(100)
+y <- 2*x + rnorm(100)
+```
+
+```{r}
+
+cor(x, y)
+
+plot(x, y, main="Scatter Plot of x and y", col="darkgreen")
+
+model <- lm(y ~ x)
+abline(model, col="red", lwd=2)
+```
+
+
 ### 동전을 10번 던졌을 때 앞면이 나오는 횟수 1000번 시뮬레이션하고, 평균 계산
 
 #### 학번 : 22410403 / 이름 : 김나현
@@ -63,22 +88,6 @@ text(mean_heads+0.5, 120, paste0("평균 = ", round(mean_heads,2)), col = "blue"
 
 # 0~10 앞면이 나올 확률 계산
 table(results)/n
-```
-### Correlation and Scatter Plot in R
-
-#### 학번 : 22410439 / 이름 : 박동희
-
-두 개의 변수 데이터를 생성한 뒤, 상관계수를 계산하고 산점도를 통해 관계를 시각적으로 확인하는 예제이다.
-
-```{r}
-x <- rnorm(100)
-y <- 2*x + rnorm(100)
-```
-
-```{r}
-cor(x,y)
-
-plot(x,y)
 ```
 
 ### 정렬 알고리즘
@@ -279,6 +288,7 @@ for (i in 1:length(x)) {
 ### 소수 판별 함수
 
 #### 학번: 22310382 / 이름: 우유빈
+
 
 숫자를 입력했을 때 소수인지 판별해주는 함수 구현
 
