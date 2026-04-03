@@ -381,4 +381,5 @@ check_even <- function(x){
 
 check_even(6)
 check_even(11)
+
 ```
