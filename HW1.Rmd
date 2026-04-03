@@ -363,3 +363,22 @@ scores$worst_score <- pmin(scores$midterm, scores$final) # 두시험 중 더 낮
 print(scores)
 
 ```
+
+### 짝수/홀수 판별
+
+#### 학번: 22310424 / 이름: 김소정
+
+if 문을 사용해 짝수/홀수를 판별하는 함수를 만드는 예제
+
+```{r}
+check_even <- function(x){
+  if(x%%2 == 0){
+    cat(x,": 짝수입니다.\n")
+  }else{
+    cat(x,": 홀수입니다.\n")
+  }
+}
+
+check_even(6)
+check_even(11)
+```
