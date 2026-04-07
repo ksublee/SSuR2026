@@ -307,3 +307,26 @@ cat(original,"의 각 자릿수의 합: ",sum)
 ```
 
 
+```
+
+### 학교 출결 및 과제 제출 확인
+
+#### 학번:22410423 / 이름: 이가빈
+
+출석률 80프로 이상 넘고 과제 제출 완료해야 시험 응시 가능
+
+```{r}
+attendance <- 75   # 출석률 (%)
+assignment_done <- TRUE  # 과제 제출 여부
+
+if (attendance >= 80 & assignment_done) {
+  print("시험 응시 가능")
+} else if (attendance >= 80 & !assignment_done) {
+  print("과제 미제출로 시험 응시 불가")
+} else if (attendance < 80 & assignment_done) {
+  print("출석률 부족으로 시험 응시 불가")
+} else {
+  print("출석률과 과제 모두 부족하여 시험 응시 불가")
+}
+
+```
