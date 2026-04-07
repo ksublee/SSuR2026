@@ -333,3 +333,23 @@ z_score <- function(x) {
 z_score(x)
 ```
 
+### 같은 생일을 가진 사람이 존재할 확률
+
+#### 학번: 22410428 / 이름 : 정영은
+
+한 그룹에서 동일한 생일을 가진 사람이 존재할 확률을 시물레이션 예제
+
+```{r}
+set.seed(1)
+
+n_sim <- 1000
+group_size <- 23
+same_birthday <- numeric(n_sim)
+
+for(i in 1:n_sim){
+  birthdays <- sample(1:365, group_size, replace=TRUE)
+  same_birthday[1] <- any(duplicated(birthdays))
+}
+
+mean(same_birthday)
+```
