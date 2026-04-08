@@ -434,25 +434,3 @@ count_zero <- function(x) {
 
 count_zero(c(0, 1, 2, 0, 3, 0, 0, 4))
 ```
-
-### 0의 개수 세기
-
-#### 학번 : 22410445 이름 : 정예원
-
-숫자 벡터에서 값이 0인 원소의 개수를 세는 예제
-
-```{r}
-count_zero <- function(x) {
-  count <- 0
-  
-  for (i in 1:length(x)) {
-    if (x[i] == 0) {
-      count <- count + 1
-    }
-  }
-  
-  return(count)
-}
-
-count_zero(c(0, 1, 2, 0, 3, 0, 0, 4))
-```
