@@ -32,40 +32,62 @@ sum(x * y)
 t(x) %*% y
 ```
 
-### 5보다 큰 숫자 오름차순 정렬
-
-#### 학번 : 22410403 / 이름 : 김나현
-
-```{r}
-x <- c(5, 12, 3, 7, 8, 2, 1, 9)
-x_1 <- x[x > 5]
-sort(x_1)
-```
-
-### 10보다 작은 숫자 평균 구하기
-
-#### 학번 : 22410403 / 이름 : 김나현
-
-```{r}
-y <- c(6, 8, 13, 22, 10, 4, 18, 16, 7, 2)
-y_1 <- y[y < 10]
-mean(y_1)
-```
-### Correlation and Scatter Plot in R
+### Correlation and Linear Relationship Analysis
 
 #### 학번 : 22410439 / 이름 : 박동희
 
-두 개의 변수 데이터를 생성한 뒤, 상관계수를 계산하고 산점도를 통해 관계를 시각적으로 확인하는 예제이다.
+두 개의 변수 데이터를 생성한 뒤, 상관계수를 계산하여 두 변수 간의 선형 관계와 산점도 확인하기
+
 
 ```{r}
+
+set.seed(123)
 x <- rnorm(100)
 y <- 2*x + rnorm(100)
 ```
 
 ```{r}
-cor(x,y)
 
-plot(x,y)
+cor(x, y)
+
+plot(x, y, main="Scatter Plot of x and y", col="darkgreen")
+
+model <- lm(y ~ x)
+abline(model, col="red", lwd=2)
+```
+
+
+### 동전을 10번 던졌을 때 앞면이 나오는 횟수 1000번 시뮬레이션하고, 평균 계산
+
+#### 학번 : 22410403 / 이름 : 김나현
+
+```{r}
+set.seed(100)
+
+n <- 10
+n_s <- 1000
+results <- replicate(n_s, sum(sample(c(1,0), n, replace = TRUE)))
+
+head(results)
+
+mean_heads <- mean(results)
+mean_heads
+```
+
+### 시뮬레이션한 결과를 바탕으로 히스토그램을 그려 분포를 확인하고, 각 횟수의 확률 계산
+
+#### 학번 : 22410403 / 이름 : 김나현
+
+```{r}
+hist(results, breaks = 0 : (n+1)-0.5, col = "lightblue",
+     main = "10회 동전 던지기 시뮬레이션(1000회)",
+     xlab = "앞면이 나온 횟수", ylab = "빈도")
+
+abline(v = mean_heads, col = "blue", lwd = 2)
+text(mean_heads+0.5, 120, paste0("평균 = ", round(mean_heads,2)), col = "blue")
+
+# 0~10 앞면이 나올 확률 계산
+table(results)/n
 ```
 
 ### 정렬 알고리즘
@@ -267,6 +289,7 @@ for (i in 1:length(x)) {
 
 #### 학번: 22310382 / 이름: 우유빈
 
+
 숫자를 입력했을 때 소수인지 판별해주는 함수 구현
 
 ```{r}
@@ -293,7 +316,6 @@ is_prime(7)
 제어문과 산술 연산자를 사용하여 랜덤하게 뽑은 정수의 각 자릿수의 합을 계산하는 코드
 
 ```{r}
-
 num <-  sample(1:10000,1) # 1부터 10000까지의 정수 중 하나  무작위 추출
 original <- num
 sum <- 0
@@ -303,10 +325,22 @@ while(num>0){
 }
 
 cat(original,"의 각 자릿수의 합: ",sum)
-
 ```
 
+### 데이터 표준화
 
+#### 학번 : 22210615 / 이름 : 장민규
+
+데이터 벡터를 평균, 표준편차를 사용해 표준화하는 예제
+
+```{r}
+x <- c(10, 20, 30, 40, 50)
+
+z_score <- function(x) {
+  (x - mean(x)) / sd(x)
+}
+
+z_score(x)
 ```
 
 ### 학교 출결 및 과제 제출 확인
@@ -328,5 +362,53 @@ if (attendance >= 80 & assignment_done) {
 } else {
   print("출석률과 과제 모두 부족하여 시험 응시 불가")
 }
+```{r}
+x <- c(10, 20, 30, 40, 50)
+
+z_score <- function(x) {
+  (x - mean(x)) / sd(x)
+}
+
+z_score(x)
+```
+
+### 최대/최소 점수 추출하기
+
+#### 학번: 22410413 / 이름: 이나연
+
+데이터 벡터의 최대/최소를 추출하는 코드
+
+```{r}
+scores <- data.frame(
+  name = c("A", "B", "C"),
+  midterm = c(85,92,78),
+  final = c(90, 88 ,82)
+)
+
+scores$best_score <- pmax(scores$midterm, scores$final) #두시험 중 더 높은 점수 추출
+
+scores$worst_score <- pmin(scores$midterm, scores$final) # 두시험 중 더 낮은 점수 추출
+
+print(scores)
+
+```
+
+### 짝수/홀수 판별
+
+#### 학번: 22310424 / 이름: 김소정
+
+if 문을 사용해 짝수/홀수를 판별하는 함수를 만드는 예제
+
+```{r}
+check_even <- function(x){
+  if(x%%2 == 0){
+    cat(x,": 짝수입니다.\n")
+  }else{
+    cat(x,": 홀수입니다.\n")
+  }
+}
+
+check_even(6)
+check_even(11)
 
 ```
