@@ -363,3 +363,23 @@ scores$worst_score <- pmin(scores$midterm, scores$final) # 두시험 중 더 낮
 print(scores)
 
 ```
+
+
+### 두 벡터의 내적을 계산하고, 각 벡터의 길이를 구하기
+
+#### 학번: 22310391 / 이름: 조승연
+
+두 벡터의 내적을 기본 연산을 이용하여 계산
+
+```{r}
+x <- c(1, 2, 3)
+y <- c(4, 5, 6)
+
+dot_product <- sum(x * y)
+dot_product
+
+norm_x <- sqrt(sum(x^2))
+norm_y <- sqrt(sum(y^2))
+norm_x
+norm_y
+```
