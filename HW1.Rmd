@@ -380,6 +380,7 @@ dot_product
 
 norm_x <- sqrt(sum(x^2))
 norm_y <- sqrt(sum(y^2))
+
 norm_x
 norm_y
 ```
