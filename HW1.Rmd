@@ -434,3 +434,15 @@ count_zero <- function(x) {
 
 count_zero(c(0, 1, 2, 0, 3, 0, 0, 4))
 ```
+
+### 로또번호 6개 추출
+
+#### 학번 : 22210632 / 이름 : 김민재 
+
+1~45까지의 번호중에 로또번호 6개를 추출하는 예제 
+
+```{r}
+lotto_numbers <- sample(1:45, 6, replace = FALSE)
+lotto_numbers <- sort(lotto_numbers)
+print(paste("이번 주 로또 번호:", paste(lotto_numbers, collapse=", ")))
+```
