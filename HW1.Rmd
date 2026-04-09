@@ -333,3 +333,20 @@ z_score <- function(x) {
 z_score(x)
 ```
 
+### 회귀분석 
+
+#### 학번:22410429 / 이름:우재현
+선형회귀모형을 적합하여 계수를 확인하고 해당 회귀평면을 그래프 
+위에 추가하는 예제
+```{r}
+install.packages('scatterplot3d')   # scatterplot3d 패키지 설치
+library(scatterplot3d)              # 3D 산점도 함수 불러오기
+x = c(3.0, 6.0, 3.0, 6.0)          
+u = c(10.0, 10.0, 20.0, 20.0)      
+y = c(4.65, 5.9, 6.7, 8.02)        
+scatterplot3d(x, u, y, xlim = 2:7, ylim = 7:23, zlim = 0:10, pch = 20, type = 'h')  # 3D 막대형 산점도 생성
+m = lm(y ~ x + u)                  
+coef(m)                            # 회귀모형의 계수 출력
+s = scatterplot3d(x, u, y, xlim = 2:7, ylim = 7:23, zlim = 0:10, pch = 20, type = 'h')  # 3D 산점도 객체 저장
+s$plane3d(m)                       # 회귀모형을 3D 평면으로 그래프에 추가
+```
