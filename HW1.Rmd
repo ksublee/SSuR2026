@@ -434,3 +434,31 @@ count_zero <- function(x) {
 
 count_zero(c(0, 1, 2, 0, 3, 0, 0, 4))
 ```
+
+### 기하분포 시뮬레이션
+
+#### 학번: 22310363 / 이름: 조혜정
+
+성공 확률이 p=0.3인 시행을 반복하면서 처음 성공이 나올 때까지 걸리는 횟수를 while문으로 시뮬레이션하고 이를 
+1000번 반복하여 기하분포를 따르는 시행 횟수의 평균과 분포를 히스토그램으로 확인하는 문제
+
+```{r}
+p <- 0.3
+trial <- numeric(1000)
+
+for(i in 1:1000){
+  count <- 0
+  
+  while(TRUE){
+    count <- count + 1
+    if(runif(1) < p){
+      break
+    }
+  }
+  
+  trial[i] <- count
+}
+
+mean(trial)
+hist(trial)
+```
