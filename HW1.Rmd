@@ -343,6 +343,35 @@ z_score <- function(x) {
 z_score(x)
 ```
 
+### 학교 출결 및 과제 제출 확인
+
+#### 학번:22410423 / 이름: 이가빈
+
+출석률 80프로 이상 넘고 과제 제출 완료해야 시험 응시 가능
+
+```{r}
+attendance <- 75   # 출석률 (%)
+assignment_done <- TRUE  # 과제 제출 여부
+
+if (attendance >= 80 & assignment_done) {
+  print("시험 응시 가능")
+} else if (attendance >= 80 & !assignment_done) {
+  print("과제 미제출로 시험 응시 불가")
+} else if (attendance < 80 & assignment_done) {
+  print("출석률 부족으로 시험 응시 불가")
+} else {
+  print("출석률과 과제 모두 부족하여 시험 응시 불가")
+}
+```{r}
+x <- c(10, 20, 30, 40, 50)
+
+z_score <- function(x) {
+  (x - mean(x)) / sd(x)
+}
+
+z_score(x)
+```
+
 ### 최대/최소 점수 추출하기
 
 #### 학번: 22410413 / 이름: 이나연
@@ -383,4 +412,96 @@ norm_y <- sqrt(sum(y^2))
 
 norm_x
 norm_y
+```
+### 짝수/홀수 판별
+
+#### 학번: 22310424 / 이름: 김소정
+
+if 문을 사용해 짝수/홀수를 판별하는 함수를 만드는 예제
+
+```{r}
+check_even <- function(x){
+  if(x%%2 == 0){
+    cat(x,": 짝수입니다.\n")
+  }else{
+    cat(x,": 홀수입니다.\n")
+  }
+}
+
+check_even(6)
+check_even(11)
+
+```
+
+### 0의 개수 세기
+
+#### 학번 : 22410445 이름 : 정예원
+
+숫자 벡터에서 값이 0인 원소의 개수를 세는 예제
+
+```{r}
+count_zero <- function(x) {
+  count <- 0
+  
+  for (i in 1:length(x)) {
+    if (x[i] == 0) {
+      count <- count + 1
+    }
+  }
+  
+  return(count)
+}
+
+count_zero(c(0, 1, 2, 0, 3, 0, 0, 4))
+```
+
+### 기하분포 시뮬레이션
+
+#### 학번: 22310363 / 이름: 조혜정
+
+성공 확률이 p=0.3인 시행을 반복하면서 처음 성공이 나올 때까지 걸리는 횟수를 while문으로 시뮬레이션하고 이를 
+1000번 반복하여 기하분포를 따르는 시행 횟수의 평균과 분포를 히스토그램으로 확인하는 문제
+
+```{r}
+p <- 0.3
+trial <- numeric(1000)
+
+for(i in 1:1000){
+  count <- 0
+  
+  while(TRUE){
+    count <- count + 1
+    if(runif(1) < p){
+      break
+    }
+  }
+  
+  trial[i] <- count
+}
+
+mean(trial)
+hist(trial)
+### 기초통계량 함수
+
+#### 학번 : 22410412 이름 : 윤초원
+
+데이터를 입력하면 기초통계량 값을 계산해주는 함수 예제
+```{r}
+summary <- function(data) {
+  
+    Mean <-  mean(data)
+    Median <-  median(data)
+    Std <-  sd(data)
+    Count <-  length(data)
+  
+  cat("계산결과\n")
+  cat("평균은 ", Mean, "입니다.\n")
+  cat("중앙값은 ", Median, "입니다.\n")
+  cat("표준편차는 ", Std, "입니다.\n")
+  cat("자료의 갯수는", Count, "입니다.\n")
+}
+
+my_data <-  c(10,20,30,40,50,60,70,80,90,100)
+
+summary(my_data)
 ```
