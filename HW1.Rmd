@@ -455,6 +455,29 @@ count_zero <- function(x) {
 count_zero(c(0, 1, 2, 0, 3, 0, 0, 4))
 ```
 
+### 행렬 연산 예제 만들기기
+
+#### 학번 : 22410443 이름 : 서지유
+
+2x2 행렬을 생성하고 덧셈 및 곱셈 수행하는 예제
+
+```{r}
+# 2x2 행렬 생성
+matrix1 <- matrix(c(1, 2, 3, 4), nrow = 2, ncol = 2)
+matrix2 <- matrix(c(5, 6, 7, 8), nrow = 2, ncol = 2)
+
+# 행렬 덧셈
+sum_matrix <- matrix1 + matrix2
+
+# 행렬 곱셈
+product_matrix <- matrix1 %*% matrix2
+
+print("행렬 덧셈 결과:")
+print(sum_matrix)
+
+print("행렬 곱셈 결과:")
+print(product_matrix)
+
 ### 기하분포 시뮬레이션
 
 #### 학번: 22310363 / 이름: 조혜정
@@ -481,6 +504,7 @@ for(i in 1:1000){
 
 mean(trial)
 hist(trial)
+
 ### 기초통계량 함수
 
 #### 학번 : 22410412 이름 : 윤초원
