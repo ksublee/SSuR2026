@@ -455,6 +455,18 @@ count_zero <- function(x) {
 count_zero(c(0, 1, 2, 0, 3, 0, 0, 4))
 ```
 
+### 로또번호 6개 추출
+
+#### 학번 : 22210632 / 이름 : 김민재 
+
+1~45까지의 번호중에 로또번호 6개를 추출하는 예제 
+
+```{r}
+lotto_numbers <- sample(1:45, 6, replace = FALSE)
+lotto_numbers <- sort(lotto_numbers)
+print(paste("이번 주 로또 번호:", paste(lotto_numbers, collapse=", ")))
+```
+
 ### 행렬 연산 예제 만들기기
 
 #### 학번 : 22410443 이름 : 서지유
@@ -477,6 +489,7 @@ print(sum_matrix)
 
 print("행렬 곱셈 결과:")
 print(product_matrix)
+```
 
 ### 기하분포 시뮬레이션
 
@@ -504,6 +517,7 @@ for(i in 1:1000){
 
 mean(trial)
 hist(trial)
+```
 
 ### 기초통계량 함수
 
