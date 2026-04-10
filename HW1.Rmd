@@ -165,7 +165,7 @@ data.frame(Month=months,Temperature=temp)
 
 
 plot(months,temp,col="red",xlab="Month",ylab="Temperature")
-
+```
 
 
 
@@ -473,6 +473,22 @@ count_zero <- function(x) {
 }
 
 count_zero(c(0, 1, 2, 0, 3, 0, 0, 4))
+```
+
+### for문을 활용해 무작위로 점수 4개를 받아 성적이 높은 순서대로 등수 나타내기
+
+#### 학번 : 22210624 류현길
+```{r}
+set.seed(123) 
+scores <- sample(50:100, 4, replace = TRUE) 
+
+sorted_scores <- sort(scores, decreasing = TRUE)
+
+ranks <- rank(-scores)
+
+cat("무작위 점수:", scores, "\n")
+cat("내림차순으로 정렬된 점수:", sorted_scores, "\n")
+cat("각 점수의 순위:", ranks, "\n")
 ```
 
 ### 로또번호 6개 추출
