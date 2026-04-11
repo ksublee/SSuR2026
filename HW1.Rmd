@@ -579,3 +579,31 @@ my_data <-  c(10,20,30,40,50,60,70,80,90,100)
 
 summary(my_data)
 ```
+
+### 확률보행과정(random walk process) 시각화
+
+#### 학번: 22212734 / 이름: 박시현
+
+시계열 데이터의 대표적인 확률과정 중 하나인 확률보행과정(random walk process)을 R 프로그래밍을 통해 시각화
+
+```{r}
+# Zt=Zt-1+e
+
+rm(Z) # 초기화
+
+t <- 500 
+
+Z <- numeric(501) # 빈 벡터 생성
+Z[1] <- 0 # z0 = 0
+
+for (i in 2:(t+1)) {
+  e <- rnorm(1, mean=0, sd=1) # 난수 생성
+  Z[i] <- Z[i-1] + e # Zt=Zt-1+e
+}
+
+# 시각화
+plot(Z,
+     type='l', col="black",
+     main='random walk porcess',
+     xlab='time', ylab='Zt')
+```
