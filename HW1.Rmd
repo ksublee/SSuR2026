@@ -607,3 +607,20 @@ plot(Z,
      main='random walk porcess',
      xlab='time', ylab='Zt')
 ```
+
+###다중회귀분석에서 설명변수별 관계 시각화 (2차원 분해 접근)
+
+#### 학번:22410433 / 이름:이도훈
+
+다중회귀를 2차원으로 분해하여 변수 간 관계를 시각적으로 해석한 코드
+```{r}
+d <- expand.grid(x = c(3,6), u = c(10,20))
+d$y <- c(4.65, 5.90, 6.70, 8.02)
+fit <- lm(y ~ x + u, data = d)
+coef(fit)
+plot(d$u, d$y, col = as.factor(d$x), pch = 19,
+     xlab = "u", ylab = "y")
+abline(lm(y ~ u, data = d[d$x == 3, ]), col = 1)
+abline(lm(y ~ u, data = d[d$x == 6, ]), col = 2)
+```
+
