@@ -607,3 +607,20 @@ plot(Z,
      main='random walk porcess',
      xlab='time', ylab='Zt')
 ```
+
+### 대출 상환금 계산
+
+#### 학번: 22410408 이름: 박나은
+
+```{r}
+loan <- 10000000   # 대출금
+rate <- 0.04       # 연이율
+n <- 12 * 5        # 5년 (개월)
+
+monthly_rate <- rate / 12
+
+payment <- loan * monthly_rate / (1 - (1 + monthly_rate)^(-n))
+
+cat("월 상환금:", round(payment), "\n")
+```
+
