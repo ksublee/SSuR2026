@@ -607,3 +607,35 @@ plot(Z,
      main='random walk porcess',
      xlab='time', ylab='Zt')
 ```
+
+###그룹별 선형 회귀 분석 및 시각화 파이프라인
+
+####학번:22410435 / 이름:김은정
+
+변속기별로 나눠 선형 회귀 분석을 수행하고 결과를 시각화하는 코드
+```{r}
+library(tidyverse)
+data("mtcars")
+
+model_result <- mtcars %>%
+  mutate(am = factor(am, labels = c("Automatic", "Manual"))) %>%
+  group_by(am) %>%
+  nest() %>%
+  mutate(
+    model = map(data, ~ lm(mpg ~ wt + hp, data = .x)),
+    summary = map(model, broom::tidy)
+  ) %>%
+  unnest(summary)
+
+print(model_result)
+
+ggplot(mtcars, aes(x = wt, y = mpg, color = factor(am))) +
+  geom_point(size = 3) +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(
+    title = "Weight vs MPG with Linear Model",
+    color = "Transmission"
+  ) +
+  theme_minimal()
+```
+
