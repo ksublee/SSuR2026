@@ -828,3 +828,21 @@ calculate_tax <- function(x){
 calculate_tax(5000)
 ```
 
+#### 학번 : 22410438 / 이름 : 김서은
+건강검진 데이터 분석 
+
+```{r}
+
+names <- c("홍길동", "김영희", "이철수", "박민수", "최지은")
+height <- c(170, 162, 180, 175, 160)
+weight <- c(74, 60, 85, 70, 55)
+cholesterol <- c(190, 180, 210, 195, 170)
+bmi <- weight / (height/100)^2 #bmi
+
+#건강 위험 대상 출력
+for (i in 1:length(names)) {
+  if (bmi[i] >= 25 | cholesterol[i] >= 200) {
+    cat(names[i], ": 위험군 (BMI =", round(bmi[i],2),
+        ", 콜레스테롤 =", cholesterol[i], ")\n")
+  }
+}
