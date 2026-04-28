@@ -735,8 +735,17 @@ for (i in x){
     sum_x  <- sum_x + i
   }
 }
-
+ 
 cat("0보다 큰 값의 개수:", count, "\n")
 cat("0보다 큰 값의 합:", sum_x)
+```
+
+###일주일 공부 평균시간
+
+###학번:22410446 / 이름 : 이시진
+```{r}
+study_hours <- c(3, 5, 2, 6, 3.5, 1, 8)
+average_hours <-mean(study_hours)
+cat("공부 평균 시간은", average_hours, "입니다")
 ```
 
