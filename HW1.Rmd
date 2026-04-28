@@ -367,6 +367,41 @@ z_score <- function(x) {
 z_score(x)
 ```
 
+
+
+
+### 행렬의 역행렬과 행렬식 대각선합 계산
+
+#### 학번: 22410407 / 이름: 안유진
+
+4*4 행렬을 생성한 뒤, 행렬식(determinant)과 역행렬(inverse matrix)을 계산하고 주대각선과 부대각선의 합을 각각 계산하는 예제
+
+```{r}
+# 4x4 행렬 생성
+M <- matrix(c(2, 1, 3, 4,
+              0, 1, 5, 2,
+              1, 6, 2, 3,
+              4, 1, 0, 1), nrow = 4, byrow = TRUE)
+
+# 행렬식 계산
+det_M <- det(M)
+
+# 역행렬 계산
+inv_M <- solve(M)
+
+# 주대각선 합
+diag_sum <- sum(diag(M))
+
+# 부대각선 합
+anti_diag_sum <- sum(diag(M[, ncol(M):1]))
+
+# 결과 출력
+det_M
+inv_M
+diag_sum
+anti_diag_sum
+```
+
 ### 회귀분석 
 
 #### 학번:22410429 / 이름:우재현
