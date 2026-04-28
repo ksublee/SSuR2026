@@ -827,7 +827,45 @@ calculate_tax <- function(x){
 
 calculate_tax(5000)
 ```
+### 건강검진 데이터 분석 
 
+#### 학번 : 22410438 / 이름 : 김서은
+
+건강검진 데이터 분석 
+
+```{r}
+names <- c("홍길동", "김영희", "이철수", "박민수", "최지은")
+height <- c(170, 162, 180, 175, 160)
+weight <- c(74, 60, 85, 70, 55)
+cholesterol <- c(190, 180, 210, 195, 170)
+bmi <- weight / (height/100)^2 #bmi
+
+#건강 위험 대상 출력
+for (i in 1:length(names)) {
+  if (bmi[i] >= 25 | cholesterol[i] >= 200) {
+    cat(names[i], ": 위험군 (BMI =", round(bmi[i],2),
+        ", 콜레스테롤 =", cholesterol[i], ")\n")
+  }
+}
+```
+
+### 누적합 함수
+
+#### 학번 : 22410449 / 이름: 김예빈
+
+길이가 n인 숫자가 주어졌을 때, 각 원소까지의 누적곱을 계산하는 함수
+
+```{r}
+a <- function(x){
+  n <- length(x)
+  result <- numeric(n)
+  result[1] <- x[1]
+  for(i in 2:n){
+    result[i] <- result[i-1]*x[i]
+  }
+  return(result)
+}
+```
 ### 표본 크기에 따른 평균의 변화 확인
 
 #### 학번: 22210611 / 이름: 최윤석
@@ -868,3 +906,4 @@ plot(n, means, type = "b",
      ylab = "표본평균(means)",
      main = "표본 크기에 따른 평균의 변화")   
 ```
+=======
