@@ -780,7 +780,6 @@ x_clean <- x[x >= lower & x <= upper]
 x_clean
 ```
 
-22210637
 
 ### 반복문을 이용한 구구단 출력력
 
