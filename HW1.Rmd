@@ -719,3 +719,19 @@ x_clean <- x[x >= lower & x <= upper]
 x_clean
 ```
 
+
+### 반복문을 이용한 구구단 출력력
+
+#### 학번 : 22210637 / 이름 : 황엘림
+
+
+```{r}
+dan <- 8
+
+cat("---", dan, "단 출력 ---\n")
+
+for (i in 1:9) {
+  result <- dan * i
+  cat(dan, "x", i, "=", result, "\n")
+}
+```
