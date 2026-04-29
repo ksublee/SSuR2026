@@ -740,3 +740,36 @@ cat("0보다 큰 값의 개수:", count, "\n")
 cat("0보다 큰 값의 합:", sum_x)
 ```
 
+### 학생 점수의 평균 대비 편차 분석
+#### 학번: 22410414 / 이름: 김시은
+
+```{r}
+# 랜덤 결과를 고정하여 재현가능하게 함
+set.seed(123)
+
+# 학생 점수 생성
+score <- sample(0:100, 20, replace = TRUE)
+
+# 전체 평균
+avg <- mean(score)
+
+# 각 점수의 편차
+dev <- score - avg
+
+# 평균 기준 분류
+above <- score[score >= avg]
+below <- score[score < avg]
+
+# 개수
+n_above <- length(above)
+n_below <- length(below)
+
+# 결과 출력
+score
+avg
+dev
+above
+below
+n_above
+n_below
+```
