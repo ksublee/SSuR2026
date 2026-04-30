@@ -780,6 +780,24 @@ x_clean <- x[x >= lower & x <= upper]
 x_clean
 ```
 
+
+### 반복문을 이용한 구구단 출력력
+
+#### 학번 : 22210637 / 이름 : 황엘림
+
+
+```{r}
+dan <- 8
+
+cat("---", dan, "단 출력 ---\n")
+
+for (i in 1:9) {
+  result <- dan * i
+  cat(dan, "x", i, "=", result, "\n")
+}
+
+
+
 ### 0보다 큰 값의 개수, 합
 
 #### 학번 : 22410420 / 이름 : 박민선
@@ -796,7 +814,7 @@ for (i in x){
     sum_x  <- sum_x + i
   }
 }
-
+ 
 cat("0보다 큰 값의 개수:", count, "\n")
 cat("0보다 큰 값의 합:", sum_x)
 ```
@@ -827,12 +845,12 @@ calculate_tax <- function(x){
 
 calculate_tax(5000)
 ```
+
 ### 건강검진 데이터 분석 
 
 #### 학번 : 22410438 / 이름 : 김서은
 
 건강검진 데이터 분석 
-
 ```{r}
 names <- c("홍길동", "김영희", "이철수", "박민수", "최지은")
 height <- c(170, 162, 180, 175, 160)
@@ -888,3 +906,125 @@ boxplot(sales ~ time, data=df,
         col=c("lightblue","lightgreen","lightpink"))
 ```
 
+###일주일 공부 평균시간
+
+###학번:22410446 / 이름 : 이시진
+
+```{r}
+study_hours <- c(3, 5, 2, 6, 3.5, 1, 8)
+average_hours <-mean(study_hours)
+cat("공부 평균 시간은", average_hours, "입니다")
+```
+
+### 표본 크기에 따른 평균의 변화 확인
+
+#### 학번: 22210611 / 이름: 최윤석
+
+큰 모집단을 직접 생성한 뒤, 표본의 크기가 증가함에 따라 평균이 어떻게 안정되는지 확인하는 예제.
+
+```{r}
+population <- c(
+  12, 45, 3, 27, 18, 50, 7, 34, 21, 9,
+  41, 2, 38, 16, 29, 5, 47, 23, 11, 36,
+  8, 44, 19, 31, 6, 40, 14, 28, 1, 33,
+  25, 48, 10, 37, 22, 4, 42, 17, 30, 13,
+  46, 24, 35, 15, 39, 20, 49, 26, 32, 43,
+  7, 18, 29, 3, 41, 12, 50, 21, 8, 34,
+  16, 45, 2, 27, 38, 9, 23, 47, 5, 36,
+  44, 11, 31, 6, 40, 14, 28, 1, 33, 25,
+  48, 10, 37, 22, 4, 42, 17, 30, 13, 46,
+  24, 35, 15, 39, 20, 49, 26, 32, 43, 19
+)   #모집단
+n <- c(5, 10, 25, 50, 75, 100)   #표본 크기
+means <- c()   #평균 저장 벡터
+
+
+for(i in 1:length(n)){
+  sample_data <- sample(population, n[i])
+  means[i] <- sum(sample_data) / n[i]
+}
+
+
+n   #표본 크기
+means   #각 표본 크기에 따른 평균
+sum(population) / length(population)   #모평균
+
+
+#그래프
+plot(n, means, type = "b",
+     xlab = " 표본크기(n)",
+     ylab = "표본평균(means)",
+     main = "표본 크기에 따른 평균의 변화")   
+main
+```
+
+### 학생 점수의 평균 대비 편차 분석
+#### 학번: 22410414 / 이름: 김시은
+
+```{r}
+# 랜덤 결과를 고정하여 재현가능하게 함
+set.seed(123)
+
+# 학생 점수 생성
+score <- sample(0:100, 20, replace = TRUE)
+
+# 전체 평균
+avg <- mean(score)
+
+# 각 점수의 편차
+dev <- score - avg
+
+# 평균 기준 분류
+above <- score[score >= avg]
+below <- score[score < avg]
+
+# 개수
+n_above <- length(above)
+n_below <- length(below)
+
+# 결과 출력
+score
+avg
+dev
+above
+below
+n_above
+n_below
+```
+
+### 1부터 100 사이의 3의 배수 찾기
+
+#### 학번 : 22410417 / 이름 : 여지원
+
+1부터 100까지의 숫자 중에서 3으로 나누었을 때 나머지가 0인 숫자(3의 배수)를 for문과 if문을 사용해 찾아내고, 전체 개수가 몇 개인지 계산하는 예제입니다.
+```{r}
+# 1. 1부터 100까지의 숫자 벡터 생성
+numbers <- 1:100
+count <- 0
+
+# 2. 반복문으로 3의 배수만 출력하고 개수 세기
+cat("찾은 3의 배수:\n")
+for (i in numbers) {
+  if (i %% 3 == 0) {
+    cat(i, " ")
+    count <- count + 1
+  }
+}
+
+# 3. 결과 출력
+cat("\n\n결과: 1부터 100 사이의 3의 배수는 총", count, "개입니다.")
+### bmi 계산 문제
+
+#### 학번: 22210644 / 이름: 최시원
+
+```{r}
+weight <- 70
+height <- 1.75
+my_bmi <- weight / height^2
+
+if (my_bmi >= 23) {
+  print("Overweight")
+} else {
+  print("Normal")
+}
+```
