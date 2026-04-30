@@ -970,3 +970,19 @@ below
 n_above
 n_below
 ```
+
+### bmi 계산 문제
+
+#### 학번: 22210644 / 이름: 최시원
+
+```{r}
+weight <- 70
+height <- 1.75
+my_bmi <- weight / height^2
+
+if (my_bmi >= 23) {
+  print("Overweight")
+} else {
+  print("Normal")
+}
+```
