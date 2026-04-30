@@ -866,3 +866,25 @@ a <- function(x){
   return(result)
 }
 ```
+
+### 카페 하루 매출 시뮬레이션 및 분석
+
+#### 학번: 22410442 / 이름: 이세현
+
+하루 동안 카페에서 발생한 주문을 가정하여 매출 데이터를 생성하고, 총 매출과 시간대별 매출을 분석
+
+```{r}
+set.seed(123)
+customers <- 100 
+sales <- sample(seq(3000, 15000, by=500), customers, replace=TRUE)
+time <- sample(c("아침", "점심", "저녁"), customers, replace=TRUE)
+df <- data.frame(time, sales)
+total_sales <- sum(df$sales)
+total_sales
+tapply(df$sales, df$time, mean)
+tapply(df$sales, df$time, sum)
+boxplot(sales ~ time, data=df,
+        main="시간대별 매출 분포",
+        col=c("lightblue","lightgreen","lightpink"))
+```
+
