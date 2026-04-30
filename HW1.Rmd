@@ -992,4 +992,18 @@ for (i in numbers) {
 
 # 3. 결과 출력
 cat("\n\n결과: 1부터 100 사이의 3의 배수는 총", count, "개입니다.")
+### bmi 계산 문제
+
+#### 학번: 22210644 / 이름: 최시원
+
+```{r}
+weight <- 70
+height <- 1.75
+my_bmi <- weight / height^2
+
+if (my_bmi >= 23) {
+  print("Overweight")
+} else {
+  print("Normal")
+}
 ```
